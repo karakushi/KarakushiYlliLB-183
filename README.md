@@ -10,6 +10,10 @@ Aktuelle Bedrohungen erkennen und erläutern können. Aktuelle Informationen zum
 ### Artefakt
 ![image](https://github.com/karakushi/KarakushiYlliLB-183/assets/118426881/df6418ed-c587-4d9e-a7d4-c12c27f41de7)
 
+### Zielerreichung
+Mit der oben abgebildeten Aufgabe, welche ich während dem Unterricht gelöst habe, konnte ich Szenarien den drei Schutzzielen zuordnen bzw. welche wie stark betroffen sind. Ebenfalls weiss ich durch den Erkennungsmethoden nun, wie ich Angriffe verhindern kann.
+
+### Erklärung
 **Erkennungsmethoden**
 - ***DDoS-Attacke:***
   - Überwachung von Netzwerkverkehr 
@@ -31,11 +35,7 @@ Aktuelle Bedrohungen erkennen und erläutern können. Aktuelle Informationen zum
   - Überprüfung von Benutzereingaben
   - Implementierung von Content Security Policy (CSP) und Input Validation
 
-### Zielerreichung
-Mit der oben abgebildeten Aufgabe, welche ich während dem Unterricht gelöst habe, konnte ich Szenarien den drei Schutzzielen zuordnen bzw. welche wie stark betroffen sind. Ebenfalls weiss ich durch den Erkennungsmethoden nun, wie ich Angriffe verhindern kann.
-
-### Erklärung
-Die Erkennungsmethoden sind
+Durch diese Erkennungsmethoden kann ich Angriffe gezielt verhindern.
 
 ### Rückblick
 Durch einen Auftrag, den wir im Modul 183 zusammen im Modulunterricht an der BBBaden gelöst haben, konnte ich viele wertvolle Informationen in meinen Wissensrucksack packen🧠🎒. Es war kein schwieriger jedoch ein leseaufwendiger Auftrag. Trotz allem bin ich nun fit was aktuelle Bedrohungen und ihre Auswirkungen angeht.
@@ -124,10 +124,12 @@ Die Autorisierung kann durch das Überprüfen der Claims im Token erfolgen.
 ### Rückblick
 Ich hatte Probleme das zu Beginn mir in den Kopf einzuprägen, jedoch macht Übung den Meister und ich konnte schlussendlich meine eigene Authentifizierung und Autorisierung in die InsecureApp einbauen.
 
+
 ## 🎯Handlungsziel 4
 Sicherheitsrelevante Aspekte bei Entwurf, Implementierung und Inbetriebnahme berücksichtigen.
 
 ### Artefakt
+
 
 ### Zielerreichung
 
