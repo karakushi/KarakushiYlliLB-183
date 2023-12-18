@@ -129,14 +129,66 @@ Ich hatte Probleme das zu Beginn mir in den Kopf einzuprägen, jedoch macht Übu
 Sicherheitsrelevante Aspekte bei Entwurf, Implementierung und Inbetriebnahme berücksichtigen.
 
 ### Artefakt
+```C#
+using M183.Controllers.Dto;
+using M183.Controllers.Helper;
+using M183.Data;
+using Microsoft.AspNetCore.Mvc;
 
+namespace M183.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
+    {
+        private readonly NewsAppContext _context;
+
+        public UserController(NewsAppContext context)
+        {
+            _context = context;
+        }
+
+        [HttpPatch("password-update")]
+        public ActionResult PasswordUpdate(PasswordUpdateDto request)
+        {
+            if (request == null)
+            {
+                return BadRequest("Request is null");
+            }
+
+            var user = _context.Users.Find(request.UserId);
+            if (user == null)
+            {
+                return NotFound($"User {request.UserId} not found");
+            }
+
+            if (MD5Helper.ComputeMD5Hash(request.OldPassword) != user.Password)
+            {
+                return Unauthorized("Old password is incorrect");
+            }
+
+            if (request.NewPassword != request.ConfirmNewPassword)
+            {
+                return BadRequest("New passwords do not match");
+            }
+
+            user.Password = MD5Helper.ComputeMD5Hash(request.NewPassword);
+            _context.Users.Update(user);
+            _context.SaveChanges();
+
+            return Ok("Password updated successfully");
+        }
+    }
+}
 
 ### Zielerreichung
+Da ich nun ein neues Passwort erstellen kann indem ich das alte eingebe und das neue 2x sind sicherheitsrelevante Aspekte definitiv eingehalten.
 
 ### Erklärung
+Diese Methode überprüft zunächst, ob die vom Benutzer eingegebenen Daten gültig sind. Sie stellt sicher, dass das alte Passwort korrekt ist und dass das neue Passwort zweimal gleich eingegeben wurde. 
 
 ### Rückblick
-
+Wenn ich dieses Artefakt kritisch betrachte, sehe ich dass ich nicht das ganze Handlungsziel damit abdecken kann. Da der Entwurf nicht allzu stark berücksichtigt wurde sondern nur die Implementierung als Code und die Inbetriebnahme als kleine Beschreibung. 
 
 ## 🎯Handlungsziel 5
 Informationen für Auditing und Logging generieren. Auswertungen und Alarme definieren und implementieren.
