@@ -180,6 +180,7 @@ namespace M183.Controllers
         }
     }
 }
+```
 
 ### Zielerreichung
 Da ich nun ein neues Passwort erstellen kann indem ich das alte eingebe und das neue 2x sind sicherheitsrelevante Aspekte definitiv eingehalten.
@@ -194,9 +195,34 @@ Wenn ich dieses Artefakt kritisch betrachte, sehe ich dass ich nicht das ganze H
 Informationen für Auditing und Logging generieren. Auswertungen und Alarme definieren und implementieren.
 
 ### Artefakt
+```C#
+using System;
+using System.IO;
 
+public class Logger
+{
+    public void Log(string message)
+    {
+        string logFile = "log.txt";
+        using (StreamWriter writer = new StreamWriter(logFile, true))
+        {
+            writer.WriteLine($"{DateTime.Now}: {message}");
+        }
+    }
+}
+
+// Verwendung:
+Logger logger = new Logger();
+logger.Log("Log-Nachricht(●'◡'●)");
+```
 ### Zielerreichung
+In diesem Handlungsziel habe ich durch das Implementieren eines einfachen Logging-Systems gelernt, wie man wichtige Informationen in einer Anwendung aufzeichnet. Dies ist entscheidend für die Überwachung der Systemleistung und das Erkennen von Sicherheitsverletzungen.
 
 ### Erklärung
+Der Code definiert eine Logger-Klasse mit einer Log-Methode. Diese Methode schreibt eine Nachricht zusammen mit einem Zeitstempel in eine Datei. Dies ist nützlich, um Aktivitäten und Fehler in der Anwendung zu protokollieren und kann zur Analyse und Fehlerbehebung verwendet werden.
 
 ### Rückblick
+Durch das Erstellen des Logging-Systems habe ich einen tieferen Einblick in die Wichtigkeit von Aufzeichnungen in Software-Anwendungen gewonnen. Es hat mir gezeigt, wie entscheidend es ist, ein Auge auf Systemaktivitäten zu haben, um unerwartete Fehler und Sicherheitsrisiken frühzeitig zu erkennen. Dieser Prozess war lehrreich und hat mein Verständnis für die Notwendigkeit einer ständigen Überwachung und Bewertung der Systemleistung in der realen Welt vertieft.
+
+## Selbsteinschätzung 🔙🧐
+Ich glaube, dass ich die wesentlichen Kompetenzen des Moduls gut erreicht habe. Durch die verschiedenen Aufgaben und das Bearbeiten von Sicherheitslücken in der Insecure-App habe ich ein starkes Verständnis für Cybersecurity entwickelt. Obwohl ich in einigen Bereichen noch Verbesserungspotenzial sehe, insbesondere bei komplexeren Sicherheitskonzepten, bin ich mit dem, was ich gelernt und umgesetzt habe, insgesamt zufrieden. Das Modul hat mir geholfen, die Bedeutung von ständiger Wachsamkeit und Anpassung an neue Sicherheitsbedrohungen zu verstehen. Ich sehe deutlich, wo ich mich verbessern kann und bin motiviert, mein Wissen und meine Fähigkeiten weiterhin zu vertiefen.
